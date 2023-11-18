@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <p>Johnny Wants a website!</p>
+
+    <a href="https://drive.google.com/drive/folders/1ieoTvXTD5_IyiIZ20Q_nJLxGwjty27zH?usp=share_link">Google Drive Link</a>
+
+    <a href="Dear_John.html">Dear John:</a>
+
+    <a href="Davids_Letter.html">David's Letter</a>
+
+ <button id="addPageButton">Add New Page</button>
+
+    <script>
+        // Function to create new HTML pages
+        function createNewPage(pageTitle) {
+            var pageContent = "<p>Hello!</p>";
+
+            var blob = new Blob([pageContent], { type: "text/html" });
+            var pageLink = URL.createObjectURL(blob);
+
+            var newLink = document.createElement("a");
+            newLink.href = pageLink;
+            newLink.textContent = pageTitle;
+
+            var lineBreak = document.createElement("br");
+
+            document.body.appendChild(lineBreak);
+            document.body.appendChild(newLink);
+        }
+
+        // Function to add a new page when the button is clicked
+        function addNewPage() {
+            var pageTitle = prompt("Enter the page title:");
+
+            if (pageTitle) {
+                createNewPage(pageTitle);
+            }
+        }
+
+        // Add a click event listener to the button
+        document.getElementById("addPageButton").addEventListener("click", addNewPage);
+    </script>
+</body>
+
+</html>
